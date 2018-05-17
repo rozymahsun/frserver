@@ -2,7 +2,7 @@ tags/**
 __pycache__
 Include/**
 Lib/**
-Script/**
+Scripts/**
 tcl/**
 frserver.sublime-project
 pip-selfcheck.json
