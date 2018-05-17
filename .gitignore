@@ -1,0 +1,13 @@
+tags/**
+__pycache__
+Include/**
+Lib/**
+Script/**
+tcl/**
+frserver.sublime-project
+pip-selfcheck.json
+*.swo
+*.swp
+*.swn
+*.swm
+*.pyc
