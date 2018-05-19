@@ -19,7 +19,18 @@ CREATE TABLE image
   FOREIGN KEY(label_id) REFERENCES label(id)
 );
 """
+sql3 = """
+DROP TABLE IF EXISTS attendance;
+CREATE TABLE attendance (
+           id integer unique primary key autoincrement,
+           userid integer,
+           name text,
+           cekinout integer(4) not null default (strftime('%s','now'))
+);
+"""
+
 c.executescript(sql1)
 c.executescript(sql2)
+c.executescript(sql3)
 conn.commit()
 conn.close()
