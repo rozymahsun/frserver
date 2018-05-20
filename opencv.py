@@ -109,6 +109,7 @@ def predict(cv_image):
     prediction = model.predict(resized)
     result = {
       'face': {
+        'id': prediction[0],
         'name': Label.get(Label.id == prediction[0]).name,
         'distance': prediction[1],
         'coords': {
@@ -163,6 +164,13 @@ class Image(BaseModel):
       cv2.imwrite(path, cropped)
       self.path = path
       self.save()
+#Todo @add_face to specific dirs and record to table
+class Attendance(BaseModel):
+  IMAGE_DIR = "data/images"
+  label = ForeignKeyField(Label)
+
+  def persist(self):
+    Attendance.create(label_id=self.label.id)
 
 
 if __name__ == "__main__":

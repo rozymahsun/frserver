@@ -28,7 +28,8 @@ class Application(tornado.web.Application):
         (r"/", SetupHarvestHandler),
         (r"/harvesting", HarvestHandler),
         (r"/predict", PredictHandler),
-        (r"/train", TrainHandler)
+        (r"/train", TrainHandler),
+        (r"/absen", AttendanceHandler)
         ]
 
     settings = dict(
@@ -86,6 +87,19 @@ class SetupHarvestHandler(tornado.web.RequestHandler):
     logging.info("Setting secure cookie %s" % name)
     self.set_secure_cookie('label', name)
     self.redirect("/")
+
+class AttendanceHandler(tornado.web.RequestHandler):
+#  def get(self):
+#    self.render("harvest.html")
+
+  def post(self):
+    logging.info("About to input attendance...")
+    id = self.get_argument("id", None)
+    logging.info("Id = %s" % id)
+    label = opencv.Label.get(opencv.Label.id == id)
+    opencv.Attendance(label=label).persist()
+#    self.redirect("/")
+
 
 class HarvestHandler(SocketHandler):
   def process(self, cv_image):

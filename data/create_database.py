@@ -22,15 +22,15 @@ CREATE TABLE image
 sql3 = """
 DROP TABLE IF EXISTS attendance;
 CREATE TABLE attendance (
-           id integer unique primary key autoincrement,
-           userid integer,
-           name text,
-           cekinout integer(4) not null default (strftime('%s','now'))
+  id INTEGER PRIMARY KEY,
+  label_id INTEGER,
+  cekinout integer(4) not null default (strftime('%s','now')),
+  FOREIGN KEY(label_id) REFERENCES label(id)
 );
 """
 
-c.executescript(sql1)
-c.executescript(sql2)
+#c.executescript(sql1)
+#c.executescript(sql2)
 c.executescript(sql3)
 conn.commit()
 conn.close()

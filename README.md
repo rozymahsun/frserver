@@ -1,5 +1,20 @@
-Face recognition
+Web Face Attendance
 ==========================================
+
+Another Face Recognition 
+
+So far
+----------
+
+#2018-05-20 : 
+- Train a Face, record to db
+- Select to Retrain / New Face
+- Register a Attendance
+
+To go
+----------
+- Record face and db when register attendance
+
 
 Running it
 ----------

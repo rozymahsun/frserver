@@ -13,3 +13,4 @@ pip-selfcheck.json
 *.swm
 *.pyc
 coffee/**
+caveat.*
