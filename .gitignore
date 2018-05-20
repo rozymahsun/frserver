@@ -13,4 +13,4 @@ pip-selfcheck.json
 *.swm
 *.pyc
 coffee/**
-ceveat.*
+static/scripts/ceveat.*
