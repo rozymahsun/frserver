@@ -90,7 +90,6 @@
           return window.ws.close(); 
         }
         button[1].onclick = function() {
-            alert("Si " + data.face.name + " Check In!");
             attend();
         };
       }
